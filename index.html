@@ -1,13 +1,1063 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CodeLiner - Integrated Placeholder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel O Silk Serenity | Premier Hotel in Bhubaneswar</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            500: '#c59b27', // Gold Accent
+                            600: '#b0881e',
+                            700: '#8c6b14',
+                            800: '#1e293b', // Deep Navy/Slate
+                            900: '#0f172a'  // Dark Slate
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.85) 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c59b27;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body>
-<h1>Integration Note</h1>
-<p>The complete integrated HTML could not be reconstructed automatically because the source provided exceeded the response/tool size limits.</p>
-<p>Please upload your current <code>index.html</code> file as an attachment (instead of pasting it into chat). I can then merge the chatbot into it without removing or changing any existing content and return the finished downloadable file.</p>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-serif text-xl font-bold shadow-md group-hover:scale-105 transition-transform">
+                        S
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-lg sm:text-xl font-bold text-slate-900 tracking-wide leading-none">HOTEL O</span>
+                        <span class="text-xs font-semibold tracking-widest text-brand-500 uppercase">Silk Serenity</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="text-slate-600 hover:text-brand-500 transition-colors">About Us</a>
+                    <a href="#rooms" class="text-slate-600 hover:text-brand-500 transition-colors">Rooms</a>
+                    <a href="#facilities" class="text-slate-600 hover:text-brand-500 transition-colors">Amenities</a>
+                    <a href="#nearby" class="text-slate-600 hover:text-brand-500 transition-colors">What's Nearby</a>
+                    <a href="#gallery" class="text-slate-600 hover:text-brand-500 transition-colors">Gallery</a>
+                    <a href="#contact" class="text-slate-600 hover:text-brand-500 transition-colors">Contact</a>
+                </div>
+
+                <!-- Call To Action & Mobile Toggle -->
+                <div class="flex items-center gap-4">
+                    <a href="#booking" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-brand-500 hover:bg-brand-600 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        Book Your Stay
+                    </a>
+                    <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-slate-50">About Us</a>
+            <a href="#rooms" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-slate-50">Rooms</a>
+            <a href="#facilities" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-slate-50">Amenities</a>
+            <a href="#nearby" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-slate-50">What's Nearby</a>
+            <a href="#gallery" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-slate-50">Gallery</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-brand-500 hover:bg-slate-50">Contact</a>
+            <a href="#booking" class="mobile-link block text-center px-4 py-3 rounded-xl text-base font-semibold text-white bg-brand-500 hover:bg-brand-600 mt-4">Book Your Stay</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Hero Background Image Placeholder (Replace src with your main hotel cover) -->
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80"
+             alt="Hotel O Silk Serenity Banner"
+             class="absolute inset-0 w-full h-full object-cover object-center"
+             onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/0f172a/ffffff?text=Hotel+O+Silk+Serenity';" />
+
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 hero-gradient"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-16">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-500 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 animate-pulse">
+                <i class="fa-solid fa-star text-amber-400"></i> Serene Hospitality in Patia, Bhubaneswar
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+                Comfort & Tranquility <br class="hidden sm:inline">
+                <span class="text-brand-500 italic">Redefined.</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-200 mb-10 leading-relaxed font-light">
+                Located near KIIT Campus and prime attractions in Bhubaneswar. Enjoy air-conditioned family rooms, high-speed Wi-Fi, 24/7 room service, and effortless connectivity.
+            </p>
+
+            <!-- Quick Booking Bar Widget -->
+            <div class="glass-card text-slate-800 p-4 sm:p-6 rounded-2xl shadow-2xl max-w-4xl mx-auto border border-white/40">
+                <form id="quick-booking-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Check-In</label>
+                        <div class="relative">
+                            <input type="date" id="hero-checkin" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none font-medium">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Check-Out</label>
+                        <div class="relative">
+                            <input type="date" id="hero-checkout" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none font-medium">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Guests & Rooms</label>
+                        <select id="hero-guests" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none font-medium text-slate-700">
+                            <option value="1">1 Guest (Single)</option>
+                            <option value="2" selected>2 Guests (1 Room)</option>
+                            <option value="3">3 Guests (Family Room)</option>
+                            <option value="4+">4+ Guests (Multiple Rooms)</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-2.5 px-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 group">
+                            <span>Check Availability</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                <!-- Left Content -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 text-brand-500 font-semibold text-sm uppercase tracking-wider">
+                        <span class="w-8 h-0.5 bg-brand-500"></span> Welcome to Hotel O Silk Serenity
+                    </div>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
+                        Your Relaxing Sanctuary in Patia, Bhubaneswar
+                    </h2>
+
+                    <p class="text-slate-600 leading-relaxed">
+                        Strategically positioned in **Kanan Vihar Phase 2, Patia**, Hotel O SILK SERENITY combines modern comforts with peaceful surroundings. Whether you are visiting KIIT University, attending business meetings, or exploring Odisha's iconic temples, our hotel offers the perfect home away from home.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 py-2">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Prime Location</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Near KIIT Campus, KIMS & Station</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
+                            <i class="fa-solid fa-headset text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">24/7 Front Desk</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Always here to assist your needs</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
+                            <i class="fa-solid fa-wifi text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">High-Speed WiFi</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Complimentary throughout property</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
+                            <i class="fa-solid fa-language text-brand-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Languages</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">English & Hindi Speaking Staff</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 text-sm italic border-l-4 border-brand-500 pl-4 py-1 bg-amber-50/50 rounded-r-lg">
+                        "Conveniently located 11 km from Bhubaneswar Railway Station and 12 km from Biju Patnaik International Airport."
+                    </p>
+                </div>
+
+                <!-- Right Images Collages (User can easily replace src tags) -->
+                <!-- IMAGE PLACEHOLDERS FOR USER -->
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <!-- Image Slot 1 -->
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+                                 alt="Hotel Exterior / Lobby"
+                                 class="w-full h-64 object-cover rounded-2xl shadow-lg hover:opacity-95 transition-opacity"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x800/e2e8f0/0f172a?text=Hotel+Lobby+Photo';" />
+                            <!-- Image Slot 2 -->
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
+                                 alt="Room Interior"
+                                 class="w-full h-40 object-cover rounded-2xl shadow-lg hover:opacity-95 transition-opacity"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/0f172a?text=Room+Interior';" />
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <!-- Image Slot 3 -->
+                            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80"
+                                 alt="Comfort Bedding"
+                                 class="w-full h-40 object-cover rounded-2xl shadow-lg hover:opacity-95 transition-opacity"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/0f172a?text=Bed+Detail';" />
+                            <!-- Image Slot 4 -->
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"
+                                 alt="Modern Bathroom"
+                                 class="w-full h-64 object-cover rounded-2xl shadow-lg hover:opacity-95 transition-opacity"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/600x800/e2e8f0/0f172a?text=Bathroom+Photo';" />
+                        </div>
+                    </div>
+
+                    <!-- Decorative Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-brand-800 text-white p-6 rounded-2xl shadow-2xl hidden sm:flex items-center gap-4 max-w-xs border border-slate-700">
+                        <i class="fa-solid fa-shield-halved text-brand-500 text-3xl"></i>
+                        <div>
+                            <div class="text-sm font-bold">24/7 Security & CCTV</div>
+                            <div class="text-xs text-slate-300">Key access & safety fire extinguishers</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-semibold text-sm uppercase tracking-wider">Accommodations</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-2 mb-4">Thoughtfully Appointed Rooms</h2>
+                <p class="text-slate-600">
+                    Each room at Hotel O Silk Serenity is furnished for complete comfort, featuring private bathrooms, air conditioning, seating areas, and modern digital amenities.
+                </p>
+            </div>
+
+            <!-- Rooms Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Room Card 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-slate-200">
+                    <div class="relative h-60 overflow-hidden bg-slate-200">
+                        <!-- USER IMAGE PLACEHOLDER: Deluxe Room -->
+                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80"
+                             alt="Deluxe Double Room"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Deluxe+Double+Room';" />
+                        <span class="absolute top-4 right-4 bg-brand-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                            Air Conditioned
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Classic Double Room</h3>
+                            <p class="text-slate-600 text-sm mb-4">
+                                Cozy & well-lit room with work desk, flat-screen TV, and attached private bathroom.
+                            </p>
+
+                            <!-- Features checklist -->
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-6">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-wifi text-brand-500"></i> Free WiFi</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-wind text-brand-500"></i> Air Conditioning</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-tv text-brand-500"></i> Flat-Screen TV</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-shower text-brand-500"></i> Private Bathroom</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-desk text-brand-500"></i> Work Desk</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-pump-soap text-brand-500"></i> Free Toiletries</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Starting from</span>
+                                <span class="font-serif text-xl font-bold text-brand-500">₹1,499</span>
+                                <span class="text-xs text-slate-500"> / night</span>
+                            </div>
+                            <button onclick="openBookingModal('Classic Double Room')" class="bg-slate-900 hover:bg-brand-500 text-white font-medium text-xs px-4 py-2.5 rounded-xl transition-colors">
+                                Reserve Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Card 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-slate-200">
+                    <div class="relative h-60 overflow-hidden bg-slate-200">
+                        <!-- USER IMAGE PLACEHOLDER: Family Room -->
+                        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80"
+                             alt="Executive Family Room"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Executive+Family+Room';" />
+                        <span class="absolute top-4 right-4 bg-brand-800 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                            Popular Choice
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Executive Family Room</h3>
+                            <p class="text-slate-600 text-sm mb-4">
+                                Spacious room designed for families or small groups with extra seating space and wardrobe.
+                            </p>
+
+                            <!-- Features checklist -->
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-6">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-users text-brand-500"></i> Family Space</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-couch text-brand-500"></i> Seating Area</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-wifi text-brand-500"></i> Free WiFi</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-wind text-brand-500"></i> Air Conditioning</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-tv text-brand-500"></i> Cable Channels</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-shirt text-brand-500"></i> Clothes Rack</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Starting from</span>
+                                <span class="font-serif text-xl font-bold text-brand-500">₹1,999</span>
+                                <span class="text-xs text-slate-500"> / night</span>
+                            </div>
+                            <button onclick="openBookingModal('Executive Family Room')" class="bg-slate-900 hover:bg-brand-500 text-white font-medium text-xs px-4 py-2.5 rounded-xl transition-colors">
+                                Reserve Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Card 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group border border-slate-200">
+                    <div class="relative h-60 overflow-hidden bg-slate-200">
+                        <!-- USER IMAGE PLACEHOLDER: Serenity Suite -->
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80"
+                             alt="Serenity King Suite"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Serenity+King+Suite';" />
+                        <span class="absolute top-4 right-4 bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                            Premium View
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Serenity King Suite</h3>
+                            <p class="text-slate-600 text-sm mb-4">
+                                Premium comfort with scenic city/park views, upgraded bed linens, and socket near bed.
+                            </p>
+
+                            <!-- Features checklist -->
+                            <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-6">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-mountain-sun text-brand-500"></i> Scenic View</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-plug text-brand-500"></i> Bedside Sockets</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-brand-500"></i> Telephone</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-square-parking text-slate-400"></i> Tile Floor</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-bell text-brand-500"></i> Wake-up Call</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-sparkles text-brand-500"></i> Daily Maid Service</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Starting from</span>
+                                <span class="font-serif text-xl font-bold text-brand-500">₹2,499</span>
+                                <span class="text-xs text-slate-500"> / night</span>
+                            </div>
+                            <button onclick="openBookingModal('Serenity King Suite')" class="bg-slate-900 hover:bg-brand-500 text-white font-medium text-xs px-4 py-2.5 rounded-xl transition-colors">
+                                Reserve Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-semibold text-sm uppercase tracking-wider">Hotel Amenities</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-2 mb-4">Everything for Your Convenience</h2>
+                <p class="text-slate-600">
+                    We offer essential services to make your stay in Bhubaneswar smooth, safe, and comfortable.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+
+                <!-- Facility 1 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-brand-500 hover:bg-white transition-all duration-300 group text-center">
+                    <div class="w-14 h-14 bg-amber-100/70 text-brand-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">Free High-Speed Wi-Fi</h3>
+                    <p class="text-xs text-slate-500">Available in all rooms and common areas</p>
+                </div>
+
+                <!-- Facility 2 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-brand-500 hover:bg-white transition-all duration-300 group text-center">
+                    <div class="w-14 h-14 bg-amber-100/70 text-brand-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-snowflake"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">Air Conditioning</h3>
+                    <p class="text-xs text-slate-500">Climate control in all guest rooms</p>
+                </div>
+
+                <!-- Facility 3 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-brand-500 hover:bg-white transition-all duration-300 group text-center">
+                    <div class="w-14 h-14 bg-amber-100/70 text-brand-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-concierge-bell"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">24-Hour Front Desk</h3>
+                    <p class="text-xs text-slate-500">Express check-in and friendly support</p>
+                </div>
+
+                <!-- Facility 4 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-brand-500 hover:bg-white transition-all duration-300 group text-center">
+                    <div class="w-14 h-14 bg-amber-100/70 text-brand-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">In-Room Dining</h3>
+                    <p class="text-xs text-slate-500">Prompt room service delivered to your door</p>
+                </div>
+
+                <!-- Facility 5 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-brand-500 hover:bg-white transition-all duration-300 group text-center">
+                    <div class="w-14 h-14 bg-amber-100/70 text-brand-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">Daily Housekeeping</h3>
+                    <p class="text-xs text-slate-500">Spotless cleaning and fresh linen</p>
+                </div>
+
+                <!-- Facility 6 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-brand-500 hover:bg-white transition-all duration-300 group text-center">
+                    <div class="w-14 h-14 bg-amber-100/70 text-brand-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-suitcase-rolling"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">Luggage Storage</h3>
+                    <p class="text-xs text-slate-500">Secure holding space for your baggage</p>
+                </div>
+
+                <!-- Facility 7 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-brand-500 hover:bg-white transition-all duration-300 group text-center">
+                    <div class="w-14 h-14 bg-amber-100/70 text-brand-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">Key Card Access</h3>
+                    <p class="text-xs text-slate-500">Modern secure access & CCTV security</p>
+                </div>
+
+                <!-- Facility 8 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-brand-500 hover:bg-white transition-all duration-300 group text-center">
+                    <div class="w-14 h-14 bg-amber-100/70 text-brand-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-bell font-bold"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">Wake-Up Service</h3>
+                    <p class="text-xs text-slate-500">Never miss an early flight or event</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearby Attractions Section -->
+    <section id="nearby" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-500 font-semibold text-sm uppercase tracking-wider">Explore Bhubaneswar</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2">What's Nearby & Transit</h2>
+                </div>
+                <!-- Category Tabs -->
+                <div class="flex gap-2 mt-6 md:mt-0 overflow-x-auto pb-2">
+                    <button onclick="switchTab('parks')" id="tab-parks" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-500 text-white transition-all">
+                        <i class="fa-solid fa-tree mr-1"></i> Parks & Gardens
+                    </button>
+                    <button onclick="switchTab('dining')" id="tab-dining" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
+                        <i class="fa-solid fa-mug-hot mr-1"></i> Cafes & Food
+                    </button>
+                    <button onclick="switchTab('transit')" id="tab-transit" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all">
+                        <i class="fa-solid fa-plane mr-1"></i> Transit & Airport
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+                <!-- Tab Panel Content -->
+                <div class="lg:col-span-2">
+
+                    <!-- PARKS TAB -->
+                    <div id="panel-parks" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Trishna Garden</h4>
+                                <p class="text-xs text-slate-400">Local Park & Walkways</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">1.0 km</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Kanan Vihar Park</h4>
+                                <p class="text-xs text-slate-400">Green Recreational Area</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">1.2 km</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Rose Garden - KIIT Campus 12</h4>
+                                <p class="text-xs text-slate-400">Beautiful Campus Grounds</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">1.8 km</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">KIMS Garden</h4>
+                                <p class="text-xs text-slate-400">Near KIMS Medical Center</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">2.3 km</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">KIIT International School Garden</h4>
+                                <p class="text-xs text-slate-400">Campus Green Spaces</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">2.8 km</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Bhubaneswar Municipal Park</h4>
+                                <p class="text-xs text-slate-400">City Park & Play Area</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">3.9 km</span>
+                        </div>
+                    </div>
+
+                    <!-- DINING TAB -->
+                    <div id="panel-dining" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Cafe Coffee Day</h4>
+                                <p class="text-xs text-slate-400">Coffee, Beverages & Snacks</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">600 m</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Wow Bhubaneswar</h4>
+                                <p class="text-xs text-slate-400">Multi-cuisine Restaurant</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">700 m</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Omfed Tea Stall</h4>
+                                <p class="text-xs text-slate-400">Quick Tea & Dairy Refreshments</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">700 m</span>
+                        </div>
+                    </div>
+
+                    <!-- TRANSIT TAB -->
+                    <div id="panel-transit" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Bhubaneswar New Railway Station</h4>
+                                <p class="text-xs text-slate-400">Nearest Train Hub</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">4.8 km</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Bhubaneswar Main Railway Station</h4>
+                                <p class="text-xs text-slate-400">Major Railway Station</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">11 km</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Biju Patnaik International Airport</h4>
+                                <p class="text-xs text-slate-400">BBI Airport Terminal</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">11 - 12 km</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60 flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-sm text-white">Janardana Temple</h4>
+                                <p class="text-xs text-slate-400">Historical / Religious Site</p>
+                            </div>
+                            <span class="px-3 py-1 bg-slate-700 text-brand-500 rounded-full text-xs font-semibold">21 km</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Location Address Box & Quick Directions Card -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-2xl border border-slate-700 shadow-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-brand-500/20 text-brand-500 rounded-xl flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base text-white">Hotel Address</h3>
+                            <p class="text-xs text-slate-400">Patia, Bhubaneswar</p>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        <strong class="text-white block mb-1">Hotel O SILK SERENITY</strong>
+                        PLOT-101 Kanan Vihar Phase 2, Patia, Near eat view apartment, Bhubaneswar, Odisha 751017, India
+                    </p>
+
+                    <a href="https://maps.google.com/?q=Hotel+O+Silk+Serenity+Bhubaneswar" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-slate-900 bg-white hover:bg-brand-500 hover:text-white transition-all shadow-md">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Open Directions in Maps
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-semibold text-sm uppercase tracking-wider">Visual Tour</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-2 mb-4">Hotel Photo Gallery</h2>
+                <p class="text-slate-600">Take a peek inside our rooms, lounge, and facilities. You can easily add your own pictures here.</p>
+            </div>
+
+            <!-- GALLERY PLACEHOLDERS (User can swap these URLs with actual photos) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+                <!-- Gallery Item 1 -->
+                <div class="group relative h-56 rounded-2xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all" onclick="openGalleryModal(this.querySelector('img').src, 'Hotel Room View')">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80"
+                         alt="Deluxe Bedroom View"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x600/1e293b/ffffff?text=Gallery+Photo+1';" />
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative h-56 rounded-2xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all" onclick="openGalleryModal(this.querySelector('img').src, 'Reception & Lobby')">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
+                         alt="Reception Desk"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x600/1e293b/ffffff?text=Gallery+Photo+2';" />
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative h-56 rounded-2xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all" onclick="openGalleryModal(this.querySelector('img').src, 'Bathroom Amenities')">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"
+                         alt="Clean Bathroom"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x600/1e293b/ffffff?text=Gallery+Photo+3';" />
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="group relative h-56 rounded-2xl overflow-hidden bg-slate-200 cursor-pointer shadow-sm hover:shadow-md transition-all" onclick="openGalleryModal(this.querySelector('img').src, 'Family Room Layout')">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+                         alt="Bed Suite"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x600/1e293b/ffffff?text=Gallery+Photo+4';" />
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-2xl"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Direct Reservation Form Section -->
+    <section id="booking" class="py-20 bg-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
+                <div class="text-center max-w-xl mx-auto mb-8">
+                    <span class="text-brand-500 font-semibold text-xs sm:text-sm uppercase tracking-wider">Direct Reservation</span>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Book Your Room Directly</h2>
+                    <p class="text-slate-500 text-sm mt-2">Fill out the form below to check immediate availability and receive direct confirmation from our front desk.</p>
+                </div>
+
+                <form id="direct-booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Guest Full Name *</label>
+                            <input type="text" required placeholder="e.g. Rahul Sharma" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Phone Number / WhatsApp *</label>
+                            <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Check-In Date *</label>
+                            <input type="date" id="form-checkin" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Check-Out Date *</label>
+                            <input type="date" id="form-checkout" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Preferred Room Type</label>
+                            <select id="form-roomtype" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition-all text-slate-700">
+                                <option value="Classic Double Room">Classic Double Room (₹1,499/night)</option>
+                                <option value="Executive Family Room">Executive Family Room (₹1,999/night)</option>
+                                <option value="Serenity King Suite">Serenity King Suite (₹2,499/night)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Number of Guests</label>
+                            <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition-all text-slate-700">
+                                <option value="1">1 Adult</option>
+                                <option value="2" selected>2 Adults</option>
+                                <option value="3">3 Adults (Family)</option>
+                                <option value="4+">4+ Adults (Group)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Special Requests (Optional)</label>
+                        <textarea rows="3" placeholder="Early check-in, ground floor request, or airport pickup inquiry..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none transition-all"></textarea>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 flex-wrap gap-4">
+                        <div class="text-xs text-slate-500">
+                            <i class="fa-solid fa-lock text-brand-500 mr-1"></i> No upfront payment required. Pay at hotel check-in.
+                        </div>
+                        <button type="submit" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition-all">
+                            Submit Booking Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & FAQ Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+                <!-- Left: Contact Details -->
+                <div>
+                    <span class="text-brand-500 font-semibold text-sm uppercase tracking-wider">Get in Touch</span>
+                    <h2 class="font-serif text-3xl font-bold text-slate-900 mt-2 mb-6">Contact & Front Desk</h2>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-12 h-12 bg-amber-100 text-brand-500 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Hotel Address</h4>
+                                <p class="text-slate-600 text-sm mt-1">
+                                    PLOT-101 Kanan Vihar Phase 2, Patia, Near eat view apartment, Bhubaneswar, Odisha 751017, India
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-12 h-12 bg-amber-100 text-brand-500 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Front Desk Helpline</h4>
+                                <p class="text-slate-600 text-sm mt-1">
+                                    24/7 Desk Support Available
+                                </p>
+                                <span class="text-brand-500 font-semibold text-sm">+91 0674-XXXXXXX / Call Hotel Desk</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="w-12 h-12 bg-amber-100 text-brand-500 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Check-In / Check-Out Times</h4>
+                                <p class="text-slate-600 text-sm mt-1">
+                                    Standard Check-In: <strong>12:00 PM</strong> | Standard Check-Out: <strong>11:00 AM</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Quick FAQs -->
+                <div>
+                    <span class="text-brand-500 font-semibold text-sm uppercase tracking-wider">Helpful Info</span>
+                    <h2 class="font-serif text-3xl font-bold text-slate-900 mt-2 mb-6">Frequently Asked Questions</h2>
+
+                    <div class="space-y-4">
+                        <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm">
+                                <span>Is parking available at the hotel?</span>
+                                <span class="transition group-open:-rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Please note that vehicle parking is currently <strong>not available</strong> on-site. Local street parking options nearby can be assisted by our staff upon arrival.
+                            </p>
+                        </details>
+
+                        <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 [&_summary::-webkit-details-marker]:hidden" open>
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm">
+                                <span>How far is the hotel from KIIT and Airports?</span>
+                                <span class="transition group-open:-rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                We are located in Patia, within 1.8 to 2.8 km of KIIT campuses and Rose Gardens. Biju Patnaik International Airport is approximately 11-12 km away (around 25-30 minutes drive).
+                            </p>
+                        </details>
+
+                        <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm">
+                                <span>What languages do staff speak?</span>
+                                <span class="transition group-open:-rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Our friendly team is fluent in both <strong>English and Hindi</strong> to ensure seamless service for all guests.
+                            </p>
+                        </details>
+
+                        <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-sm">
+                                <span>Is Wi-Fi free for all guests?</span>
+                                <span class="transition group-open:-rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                Yes! High-speed Wi-Fi is available across all room types and common areas free of charge.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-brand-500 text-white flex items-center justify-center font-serif text-lg font-bold">
+                            S
+                        </div>
+                        <span class="font-serif text-xl font-bold text-white tracking-wide">HOTEL O SILK SERENITY</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 max-w-md leading-relaxed">
+                        Offering modern air-conditioned accommodation with free Wi-Fi, daily housekeeping, and 24-hour service in Patia, Bhubaneswar.
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        PLOT-101 Kanan Vihar Phase 2, Patia, Near eat view apartment, Bhubaneswar - 751017, Odisha.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="#about" class="hover:text-brand-500 transition-colors">About Us</a></li>
+                        <li><a href="#rooms" class="hover:text-brand-500 transition-colors">Our Rooms</a></li>
+                        <li><a href="#facilities" class="hover:text-brand-500 transition-colors">Amenities</a></li>
+                        <li><a href="#nearby" class="hover:text-brand-500 transition-colors">Nearby Places</a></li>
+                        <li><a href="#booking" class="hover:text-brand-500 transition-colors">Book Now</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Nearby Highlights</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><i class="fa-solid fa-angle-right text-brand-500 mr-1"></i> KIIT Campus 12 (1.8 km)</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-500 mr-1"></i> KIMS Hospital (2.3 km)</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-500 mr-1"></i> Bhubaneswar New Stn (4.8 km)</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-500 mr-1"></i> Biju Patnaik Airport (11 km)</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center sm:flex sm:justify-between sm:text-left text-xs text-slate-500">
+                <p>&copy; <span id="current-year"></span> Hotel O Silk Serenity. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Designed for Comfort & Elegance in Bhubaneswar</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Lightbox Modal -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+            <button onclick="closeGalleryModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center hover:bg-brand-500 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="p-2">
+                <img id="modal-img" src="" alt="Zoomed Photo" class="w-full max-h-[75vh] object-contain rounded-xl">
+            </div>
+            <div class="p-4 bg-slate-900 text-center">
+                <h4 id="modal-caption" class="text-white font-serif font-bold text-lg">Photo Title</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Message Container -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-brand-500 flex items-center gap-3 transform transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-brand-500 text-xl"></i>
+        <span id="toast-msg" class="text-sm font-medium">Action successful!</span>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Default dates setup (Today & Tomorrow)
+        const today = new Date().toISOString().split('T')[0];
+        const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+
+        document.getElementById('hero-checkin').value = today;
+        document.getElementById('hero-checkout').value = tomorrow;
+        document.getElementById('form-checkin').value = today;
+        document.getElementById('form-checkout').value = tomorrow;
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        function switchTab(tabName) {
+            // Hide all panels
+            document.getElementById('panel-parks').classList.add('hidden');
+            document.getElementById('panel-dining').classList.add('hidden');
+            document.getElementById('panel-transit').classList.add('hidden');
+
+            // Reset tab button styles
+            const tabs = ['parks', 'dining', 'transit'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tab-' + t);
+                btn.className = 'tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all';
+            });
+
+            // Activate selected tab & panel
+            document.getElementById('panel-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.className = 'tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-500 text-white transition-all';
+        }
+
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            showToast("Reservation request submitted! Front desk will contact you shortly.");
+            event.target.reset();
+
+            // Re-set default dates
+            document.getElementById('form-checkin').value = today;
+            document.getElementById('form-checkout').value = tomorrow;
+        }
+
+        document.getElementById('quick-booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const roomSection = document.getElementById('booking');
+            roomSection.scrollIntoView({ behavior: 'smooth' });
+            showToast("Dates set! Please fill in your name and contact details.");
+        });
+
+        function openBookingModal(roomName) {
+            const roomSelect = document.getElementById('form-roomtype');
+            if (roomSelect) {
+                roomSelect.value = roomName;
+            }
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            showToast("Selected " + roomName + ". Complete your contact details below.");
+        }
+
+        function openGalleryModal(imgSrc, caption) {
+            const modal = document.getElementById('gallery-modal');
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('modal-caption').textContent = caption;
+            modal.classList.remove('hidden');
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.textContent = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
 </body>
 </html>
